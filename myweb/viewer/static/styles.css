@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    color: yellow;
+    font-family: Arial, sans-serif;
+    background-image: url('uploads/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.content {
+    margin: 50px 15px;
+}
+
+.highlight {
+    color: orange;
+}
+.image-link {
+    text-align: center;
+    margin: 20px; /* Upravte podle potřeby */
+}
+
+.image-link img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto; /* Zarovnání obrázku na střed */
+}
+
+.image-link p {
+    margin-top: 10px; /* Vzdálenost mezi obrázkem a textem */
+    font-weight: bold;
+}
+.imagecontainer {
+    display: flex;
+}
+.position {
+    width:200px;
+}
+.thumbnail-container {
+    display: flex;
+}
+
+.center {
+    display: flex;
+}

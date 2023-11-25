@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent4You - Luxusný Prenájom Bytov, Chát a Domov</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+<div class="header">
+    <h1><span class="highlight">Rent4You</span></h1>
+</div>
+<div class="content">
+    <p>Ponúkame Vám širokú škálu možností pre luxusný prenájom. V Rent4You sa zameriavame na poskytovanie kvalitných a štýlových bytov, chát a domov pre vaše pohodlie a bezpečnosť.</p>
+
+    <h2>Prečo si vybrať Rent4You?</h2>
+    <ul>
+        <li>Luxusné byty, chaty a domy vo vybraných lokalitách.</li>
+        <li>Bezpečné a pohodlné prostredie pre Vás a Vašu rodinu.</li>
+        <li>Profesionálny tím pre Vašu spokojnosť a spoľahlivosť.</li>
+        <li>Flexibilné ponuky prenájmu prispôsobené vašim potrebám.</li>
+    </ul>
+
+    <h2>Naša Ponuka</h2>
+    <p>Prezrite si našu aktuálnu ponuku luxusných bytov, chát a domov:</p>
+    <div class='imagecontainer'>
+{% for category in categories %}
+    <div class="image-link">
+        <a href="{% url 'rental' category.name %}">
+            <img src='{{ category.image.url }}'>
+        </a>
+    </div>
+{% endfor %}
+
+</div>
+    <h2>Kontaktujte Nás</h2>
+    <p>Máte záujem o niektorú z našich nehnuteľností alebo máte otázky? Neváhajte nás kontaktovať. Sme tu pre vás 24/7.</p>
+
+    <p><strong>Viac než len prenájom, Rent4You je váš kľúč k luxusnému životnému štýlu.</strong></p>
+</div>
+</body>
+</html>

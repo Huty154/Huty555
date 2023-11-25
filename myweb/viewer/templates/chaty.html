@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Rent4You - Luxusný Prenájom Bytov, Chát a Domov</title>
+
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <style>
+        /* Vaše CSS styly pro náhledové obrázky jsou zde */
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1><span class="highlight">Rent4You</span></h1>
+    </div>
+    <div class="content">
+        <p> CHATY V PONUKE NA PRENÁJOM</p>
+
+        <!-- Lightbox pro byt1 -->
+        <div class="thumbnail-container">
+            <a href="{% static 'uploads/chata1.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg">
+                <img class="position" src="{% static 'uploads/chata1.jpg' %}" alt="Náhled hlavního obrázku">
+            </a>
+            <a href="{% static 'uploads/chata11.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - 2 podlažná chata s vlastným krbom">
+                <img src="{% static 'uploads/chata11.jpg' %}" alt="Náhled hlavního obrázku"style="display: none;">
+            </a>
+         <a href="{% static 'uploads/chata111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Luxusný welness s výhľadom na hory">
+                 <img src="{% static 'uploads/chata111.jpg' %}" alt="Náhľad hlavného obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata1111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Terasa s výhladom na hory">
+                <img src="{% static 'uploads/chata1111.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata11111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Spálňa s manželskou posteľou">
+                <img src="{% static 'uploads/chata1111.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+        </div>
+
+        <!-- Lightbox pro byt2 -->
+        <div class="thumbnail-container">
+            <a href="{% static 'uploads/chata2.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend">
+                <img class="position" src="{% static 'uploads/chata2.jpg' %}" alt="Náhled hlavního obrázku">
+            </a>
+            <a href="{% static 'uploads/chata22.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Posedenie s výhladom na polia">
+                <img src="{% static 'uploads/chata22.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Spálňa s manželskou posteľou a prístupom do kúpelne">
+                <img src="{% static 'uploads/chata222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata2222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Rezort v ktorom sa chaty nachádzajú">
+                <img src="{% static 'uploads/chata222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata22222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Jedinečný dizajn stavby">
+                <img src="{% static 'uploads/chata22222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+        </div>
+        <!-- Lightbox pro byt3 -->
+        <div class="thumbnail-container">
+            <a href="{% static 'uploads/chata3.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja">
+                <img class="position" src="{% static 'uploads/chata3.jpg' %}" alt="Náhled hlavního obrázku">
+            </a>
+            <a href="{% static 'uploads/chata33.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja- Terasa s vlastným bazénom">
+                <img src="{% static 'uploads/chata3.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Spálňa s manželskou postelou a výhladom na Babiu Góru">
+                <img src="{% static 'uploads/chata33.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata3333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Podkrovná izba pre 3 osoby">
+                <img src="{% static 'uploads/chata3333.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+            <a href="{% static 'uploads/chata33333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Kuchyňa s jedálenskym stolom">
+                <img src="{% static 'uploads/chata33333.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+            </a>
+        </div>
+
+        <h2>Kontaktujte Nás</h2>
+        <p>Máte záujem o niektorú z našich nehnuteľností alebo máte otázky? Neváhajte nás kontaktovať. Sme tu pre vás
+            24/7.</p>
+
+        <p><strong>Viac než len prenájom, Rent4You je váš kľúč k luxusnému životnému štýlu.</strong></p>
+    </div>
+</body>

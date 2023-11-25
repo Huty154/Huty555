@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>Rent4You - Luxusný Prenájom Bytov, Chát a Domov</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <h1><span class="highlight">Rent4You</span></h1>
+    </div>
+    <div class="content">
+        <p>BYTY V PONUKE NA PRENÁJOM</p>
+
+        <!-- Lightbox pro byt1 -->
+       <div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.0.image.url }}" data-lightbox="property" data-title="{{ properties.0.title }}">
+            <img src="{{ properties.0.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"1:" %}
+        {% if property.order == 4 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
+            </a>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.5.image.url }}" data-lightbox="property" data-title="{{ properties.5.title }}">
+            <img src="{{ properties.5.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"6:" %}
+        {% if property.order == 5 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
+            </a>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.10.image.url }}" data-lightbox="property" data-title="{{ properties.10.title }}">
+            <img src="{{ properties.10.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"11:" %}
+        {% if property.order == 6 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
+            </a>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+
+
+    </div>
+</body>
+
+</html>
+
+
