@@ -29,66 +29,54 @@
     <div class="content">
         <p> CHATY V PONUKE NA PRENÁJOM</p>
 
-        <!-- Lightbox pro byt1 -->
-        <div class="thumbnail-container">
-            <a href="{% static 'uploads/chata1.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg">
-                <img class="position" src="{% static 'uploads/chata1.jpg' %}" alt="Náhled hlavního obrázku">
-            </a>
-            <a href="{% static 'uploads/chata11.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - 2 podlažná chata s vlastným krbom">
-                <img src="{% static 'uploads/chata11.jpg' %}" alt="Náhled hlavního obrázku"style="display: none;">
-            </a>
-         <a href="{% static 'uploads/chata111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Luxusný welness s výhľadom na hory">
-                 <img src="{% static 'uploads/chata111.jpg' %}" alt="Náhľad hlavného obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata1111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Terasa s výhladom na hory">
-                <img src="{% static 'uploads/chata1111.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata11111.jpg' %}" data-lightbox="chata1" data-title="Chalet Wolke, Wolfsberg - Spálňa s manželskou posteľou">
-                <img src="{% static 'uploads/chata1111.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-        </div>
 
-        <!-- Lightbox pro byt2 -->
-        <div class="thumbnail-container">
-            <a href="{% static 'uploads/chata2.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend">
-                <img class="position" src="{% static 'uploads/chata2.jpg' %}" alt="Náhled hlavního obrázku">
+<div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.0.image.url }}" data-lightbox="property" data-title="{{ properties.0.title }}">
+            <img src="{{ properties.0.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"1:" %}
+        {% if property.order == 7 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
             </a>
-            <a href="{% static 'uploads/chata22.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Posedenie s výhladom na polia">
-                <img src="{% static 'uploads/chata22.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.5.image.url }}" data-lightbox="property" data-title="{{ properties.5.title }}">
+            <img src="{{ properties.5.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"6:" %}
+        {% if property.order == 8 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
             </a>
-            <a href="{% static 'uploads/chata222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Spálňa s manželskou posteľou a prístupom do kúpelne">
-                <img src="{% static 'uploads/chata222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="thumbnail-container">
+    {% if properties %}
+        <a href="{{ properties.10.image.url }}" data-lightbox="property" data-title="{{ properties.10.title }}">
+            <img src="{{ properties.10.image.url }}" alt="Náhled hlavního obrázku">
+        </a>
+        {% for property in properties|slice:"11:" %}
+        {% if property.order == 9 %}
+            <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
+                <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
             </a>
-            <a href="{% static 'uploads/chata2222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Rezort v ktorom sa chaty nachádzajú">
-                <img src="{% static 'uploads/chata222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata22222.jpg' %}" data-lightbox="chata2" data-title="Treehouses Kapolcs Vigántpetend - Jedinečný dizajn stavby">
-                <img src="{% static 'uploads/chata22222.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-        </div>
-        <!-- Lightbox pro byt3 -->
-        <div class="thumbnail-container">
-            <a href="{% static 'uploads/chata3.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja">
-                <img class="position" src="{% static 'uploads/chata3.jpg' %}" alt="Náhled hlavního obrázku">
-            </a>
-            <a href="{% static 'uploads/chata33.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja- Terasa s vlastným bazénom">
-                <img src="{% static 'uploads/chata3.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Spálňa s manželskou postelou a výhladom na Babiu Góru">
-                <img src="{% static 'uploads/chata33.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata3333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Podkrovná izba pre 3 osoby">
-                <img src="{% static 'uploads/chata3333.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-            <a href="{% static 'uploads/chata33333.jpg' %}" data-lightbox="chata3" data-title="Pine Tree Chalet Zawoja - Kuchyňa s jedálenskym stolom">
-                <img src="{% static 'uploads/chata33333.jpg' %}" alt="Náhled hlavního obrázku" style="display: none;">
-            </a>
-        </div>
+        {% endif %}
+        {% endfor %}
+    {% endif %}
+</div>
 
-        <h2>Kontaktujte Nás</h2>
-        <p>Máte záujem o niektorú z našich nehnuteľností alebo máte otázky? Neváhajte nás kontaktovať. Sme tu pre vás
-            24/7.</p>
 
-        <p><strong>Viac než len prenájom, Rent4You je váš kľúč k luxusnému životnému štýlu.</strong></p>
+
+
+
     </div>
 </body>
+
