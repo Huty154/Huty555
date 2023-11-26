@@ -24,4 +24,6 @@ def rental(request, category=None):
     except Category.DoesNotExist:
         raise Http404("Category does not exist")
 
+def reservation(request):
+    return render(request, 'reservation.html')
 
