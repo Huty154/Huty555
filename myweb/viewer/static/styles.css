@@ -50,3 +50,78 @@ body {
 .center {
     display: flex;
 }
+
+.header {
+
+}
+
+.calendar-container {
+    display: flex;
+}
+
+.calendar-text {
+    width: 40%; /* Allocate 50% of the screen for text content */
+    padding: 50px;
+    font-size: 24px;
+
+}
+
+#calendar {
+    height: 65vh;
+    width: 50vw;
+    transition: 0.5s ease;
+    margin-top: 80px;
+    margin-left: 50px;
+}
+
+#calendar th {
+    font-size: 24px;
+}
+
+.reservation-button {
+    text-decoration: none;
+    background-color: grey;
+    color: #FFF;
+    font-size: 22px;
+    padding: 10px 80px;
+    cursor: pointer;
+    transition: 0.3s;
+    border: none;
+    border-radius: 5px;
+}
+
+.reservation-button-container {
+    width: 25vw; /* Set width to 25% of the viewport width */
+    /* Add any additional styling as needed */
+}
+
+.reservation-button:hover {
+    background-color: rgba(0, 0, 40, 0.9);
+}
+
+.selected-date {
+  position: relative;
+  background-color: #2670b9;
+  width: 140px; /* Adjust according to your design */
+  height: 30px; /* Adjust according to your design */
+  line-height: 31px; /* Center the text vertically */
+}
+
+#dateDisplay{ /* Initially set opacity to 0 */
+    visibility: hidden; /* Initially hide the element */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    font-size: 20px;
+    display: flex;
+}
+
+#selectedDatesDisplay {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.reservation-link {
+    color: yellow;
+    margin-left: 10px;
+    font-size: 25px;
+}
