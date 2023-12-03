@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rent4You - Luxusný Prenájom Bytov, Chát a Domov</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
+</head>
+<body>
+
+<div class="centered-container-column">
+    <h1 class="page-title">Zhrnutie a platba</h1>
+
+    <table class="order-table">
+        <tr>
+            <td><strong>Meno a Priezvisko:</strong></td>
+            <td>{{ order.name_surname }}</td>
+        </tr>
+        <tr>
+            <td><strong>Od:</strong></td>
+            <td>{{ order.date_from|date:"d.m.Y" }}</td>
+        </tr>
+        <tr>
+            <td><strong>Do:</strong></td>
+            <td>{{ order.date_to|date:"d.m.Y" }}</td>
+        </tr>
+        <tr>
+            <td><strong>Email:</strong></td>
+            <td>{{ order.email }}</td>
+        </tr>
+        <tr>
+            <td><strong>Telefón:</strong></td>
+            <td>{{ order.phone }}</td>
+        </tr>
+        <tr>
+            <td><strong>Ulica:</strong></td>
+            <td>{{ order.address }}</td>
+        </tr>
+        <tr>
+            <td><strong>Mesto:</strong></td>
+            <td>{{ order.city }}</td>
+        </tr>
+        <tr>
+            <td><strong>PSČ:</strong></td>
+            <td>{{ order.postal }}</td>
+        </tr>
+        <tr>
+            <td><strong>Cena:</strong></td>
+            <td>{{ order.price }} €</td>
+        </tr>
+    </table>
+    <button><a href="{% url 'end' %}">Zaplatiť</a></button>
+
+</div>
+
+</body>
+</html>

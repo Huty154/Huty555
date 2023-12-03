@@ -86,36 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 });
-   $("#checkout-link").click(function () {
-      var selectedDates = selectedEndDates.map(function (date) {
-        return new Date(date);
-      });
 
-      // Odešleme vybraná data na server
-      $.ajax({
-        type: "POST",
-        url: "{% url 'handle_reservation' %}",  // Změňte URL podle vašich cest
-        data: {
-          selectedDates: JSON.stringify(selectedDates), // Převedeme pole na JSON řetězec
-          csrfmiddlewaretoken: '{{ csrf_token }}',  // Přidejte CSRF token pro bezpečnost
-        },
-        success: function (data) {
-          // Zpracujte úspěšnou odpověď od serveru
-          console.log("Reservation successful");
-          // Přidat další logiku nebo přesměrování po rezervaci
-
-          // Zde můžete přidat další kód, např. přesměrování nebo zobrazení potvrzovacího okna
-          alert("Rezervace úspěšně odeslána!");
-        },
-        error: function () {
-          // Zpracujte chybu
-          console.log("Error during reservation");
-
-          // Zde můžete přidat kód pro zobrazení chybového hlášení
-          alert("Chyba při odesílání rezervace!");
-        }
-      });
-    });
 function highlightSelectedDates(selectedDates) {
   // Helper function to add a CSS class to the selected dates
   selectedDates.forEach(function (date) {

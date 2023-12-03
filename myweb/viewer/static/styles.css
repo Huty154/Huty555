@@ -96,12 +96,12 @@ body {
 }
 
 .reservation-button:hover {
-    background-color: rgba(0, 0, 40, 0.9);
+    background-color: yellow;
 }
 
 .selected-date {
   position: relative;
-  background-color: #2670b9;
+  background-color: #727302;
   width: 140px; /* Adjust according to your design */
   height: 30px; /* Adjust according to your design */
   line-height: 31px; /* Center the text vertically */
@@ -124,4 +124,32 @@ body {
     color: yellow;
     margin-left: 10px;
     font-size: 25px;
+}
+
+.fc-event.finishing-day {
+  background-color: transparent;
+  background-image: linear-gradient(150deg, red 50%, transparent 50%);
+  background-size: 100% 100%; /* This ensures the gradient covers the element completely */
+}
+
+.fc-event.starting-day {
+  background-color: transparent;
+  background-image: linear-gradient(150deg, transparent 50%, red 50%);
+  background-size: 100% 100%; /* This ensures the gradient covers the element completely */
+}
+
+.fc-event.in-between {
+  background-color: red;
+}
+
+.fc-day {
+    cursor: pointer;
+}
+
+.fc-day.fc-day-past {
+    cursor: not-allowed;
+}
+
+.fc-day.fc-day-today {
+    cursor: not-allowed;
 }

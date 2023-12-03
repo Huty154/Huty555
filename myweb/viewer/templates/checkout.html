@@ -15,26 +15,38 @@
     <h1><span class="highlight">Rent4You</span></h1>
 </div>
 
-<div class="centered-container">
-    <h2>Vyplňte údaje pro rezervaci:</h2>
-    <form action="{% url 'end' %}" method="post">
+<div class="centered-container-column">
+    <h1 class="page-title">Objednávka</h1>
+
+    <h3>Termín: {{ first_date }} - {{ last_date }}  ({{ nights }} {{ night_text }})</h3>
+
+    <form method="post">
         {% csrf_token %}
-        <label for="first_name">Meno:</label>
-        <input type="text" id="first_name" name="first_name" required>
-
-        <label for="last_name">Priezvisko:</label>
-        <input type="text" id="last_name" name="last_name" required>
-
-        <label for="address">Adresa:</label>
-        <input type="text" id="address" name="address" required>
-
-        <label for="phone_number">Telefónne číslo:</label>
-        <input type="tel" id="phone_number" name="phone_number" required>
-
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
-
-        <button type="submit">Potvrdiť</button>
+        <label for="id_name_surname">Meno a priezvisko</label>
+        {{ form.name_surname }}
+        {{ form.name_surname.errors }}
+        <br>
+        <label for="id_email">Email:</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+        <br>
+        <label for="id_phone">Telefón:</label>
+        {{ form.phone }}
+        {{ form.phone.errors }}
+        <br>
+        <label for="id_address">Ulica:</label>
+        {{ form.address }}
+        {{ form.address.errors }}
+        <br>
+        <label for="id_city">Mesto:</label>
+        {{ form.city }}
+        {{ form.city.errors }}
+        <br>
+        <label for="id_postal">PSČ:</label>
+        {{ form.postal }}
+        {{ form.postal.errors }}
+        <br>
+        <input class="checkout-submit-button" type="submit" value="Prejsť na platbu">
     </form>
 </div>
 

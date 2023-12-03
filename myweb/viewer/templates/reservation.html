@@ -6,6 +6,19 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script src='{% static "fullcalendar-6.1.9/dist/index.global.min.js" %}'></script>
     <title>Title</title>
+    <script>
+        var eventData = [
+            {% for event in event_data %}
+                {
+                    title: '',
+                    start: '{{ event.start }}',
+                    end: '{{ event.end }}',
+                    display: 'background',
+                    classNames: ['{{ event.classNames }}']
+                },
+            {% endfor %}
+        ];
+    </script>
 </head>
 <body>
 
@@ -41,6 +54,5 @@
 
 
     <script src='{% static "reservation.js" %}'></script>
-    <script>var eventData = []</script>
 </body>
 </html>
