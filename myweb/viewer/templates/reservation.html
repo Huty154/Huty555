@@ -28,12 +28,13 @@
                 <p>Termín: </p>
                 <p id="selectedDatesDisplay"></p>
             </div>
-            <a class="reservation-button" id="checkout-link" href="#">Rezervovať</a>
-            {% if messages %}
-                {% for message in messages %}
-                    <p class="message-text"><i class="fa-solid fa-message-exclamation"></i> {{ message }}</p>
-                {% endfor %}
-            {% endif %}
+          <a class="reservation-button" id="checkout-link" href="#">Rezervovať</a>
+
+{% if messages %}
+  {% for message in messages %}
+    <p class="message-text"><i class="fa-solid fa-message-exclamation"></i> {{ message }}</p>
+  {% endfor %}
+{% endif %}
         </div>
     </div>
 

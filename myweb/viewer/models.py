@@ -13,4 +13,15 @@ class Property(models.Model):
     image = models.ImageField(upload_to='uploads/')
     order = models.IntegerField()
     title = models.CharField(max_length=500)
+# models.py
+from django.db import models
+
+class Reservation(models.Model):
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+
+    def __str__(self):
+        return f'Rezervace od {self.start_date} do {self.end_date}'
+
 
