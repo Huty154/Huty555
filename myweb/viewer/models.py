@@ -14,6 +14,7 @@ class Property(Model):
     image = ImageField(upload_to='uploads/')
     order = IntegerField()
     title = CharField(max_length=500)
+    price = IntegerField(default=150)
 
 
 class Order(Model):

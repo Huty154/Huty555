@@ -26,14 +26,17 @@
     <div class="header">
         <h1><span class="highlight">Rent4You</span></h1>
     </div>
-    <div class="content">
+    <div class="content center-text">
         <p> CHATY V PONUKE NA PRENÁJOM</p>
 
 
 <div class="thumbnail-container">
     {% if properties %}
+       <div class="image-link">
         <a href="{{ properties.0.image.url }}" data-lightbox="property" data-title="{{ properties.0.title }}">
             <img src="{{ properties.0.image.url }}" alt="Náhled hlavního obrázku">
+             <div class="image-title">{{ properties.0.title }}</div>
+             <p><a class="reservation-link" href="{% url 'reservation' %}">Rezervovať</a></p>
         </a>
         {% for property in properties|slice:"1:" %}
         {% if property.order == 7 %}
@@ -46,13 +49,17 @@
 </div>
 <div class="thumbnail-container">
     {% if properties %}
+       <div class="image-link">
         <a href="{{ properties.5.image.url }}" data-lightbox="property" data-title="{{ properties.5.title }}">
             <img src="{{ properties.5.image.url }}" alt="Náhled hlavního obrázku">
+             <div class="image-title">{{ properties.5.title }}</div>
+             <p><a class="reservation-link" href="{% url 'reservation' %}">Rezervovať</a></p>
         </a>
         {% for property in properties|slice:"6:" %}
         {% if property.order == 8 %}
             <a href="{{ property.image.url }}" data-lightbox="property" data-title="{{ property.title }}" style="display: none;">
                 <img src="{{ property.image.url }}" alt="Náhled dalšího obrázku">
+
             </a>
         {% endif %}
         {% endfor %}
@@ -60,8 +67,11 @@
 </div>
 <div class="thumbnail-container">
     {% if properties %}
+       <div class="image-link">
         <a href="{{ properties.10.image.url }}" data-lightbox="property" data-title="{{ properties.10.title }}">
             <img src="{{ properties.10.image.url }}" alt="Náhled hlavního obrázku">
+             <div class="image-title">{{ properties.10.title }}</div>
+               <p><a class="reservation-link" href="{% url 'reservation' %}">Rezervovať</a></p>
         </a>
         {% for property in properties|slice:"11:" %}
         {% if property.order == 9 %}

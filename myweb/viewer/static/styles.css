@@ -122,8 +122,7 @@ body {
 
 .reservation-link {
     color: yellow;
-    margin-left: 10px;
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .fc-event.finishing-day {
@@ -153,3 +152,57 @@ body {
 .fc-day.fc-day-today {
     cursor: not-allowed;
 }
+.dom-section {
+    margin: 10;
+    padding: 0;
+    color: yellow;
+    font-family: Arial, sans-serif;
+    background-image: url('uploads/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dom-section .content {
+    margin: 10px 15px;
+}
+
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.thumbnail-container a {
+    margin:  0 15px;
+
+}
+
+.thumbnail-container img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+
+
+
+}
+.center-text {
+    text-align: center;
+}
+.image-title {
+    text-align: center;  /* Zarovnání textu na střed */
+    margin-top: 5px;     /* Vzdálenost nad názvem */
+    color: yellow;        /* Barva textu */
+    font-size: 12px;     /* Velikost písma */
+}
+
+
+}
+
+/* ... (ostatné štýly pre tvoju časť s domami) */
+

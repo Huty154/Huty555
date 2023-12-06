@@ -138,7 +138,7 @@ def checkout(request):
                 address=form.cleaned_data['address'],
                 city=form.cleaned_data['city'],
                 postal=form.cleaned_data['postal'],
-                price=nights_count * 99
+                price=nights_count * property.price
             )
             order_id = order.id
             return redirect('order', order_id=order_id)
@@ -181,3 +181,7 @@ def handle_reservation(request):
         return JsonResponse({'success': True})
     else:
         return JsonResponse({'success': False, 'message': 'Invalid request method'})
+
+def dubai_reservation(request):
+
+    return render(request, 'dubai_reservation.html')
