@@ -1,14 +1,13 @@
 from django.urls import path
-from viewer.views import rental, homepage, reservation, checkout, end, order, dubai_reservation
+from viewer.views import rental, homepage, reservation, checkout, end, order
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('reservation/', reservation, name='reservation'),
-    path('dubai_reservation/', dubai_reservation, name='dubai_reservation'),
-    path('checkout/', checkout, name='checkout'),
+    path('reservation/<int:property_id>/', reservation, name='reservation'),
+    path('checkout/<int:property_id>/', checkout, name='checkout'),
     path('order/<int:order_id>/', order, name='order'),
     path('end/', end, name='end'),
     path('<str:category>/', rental, name='rental'),

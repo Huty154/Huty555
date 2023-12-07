@@ -31,9 +31,10 @@ def rental(request, category=None):
         raise Http404("Category does not exist")
 
 
-def reservation(request):
+def reservation(request, property_id):
+    property = Property.objects.get(id=property_id)
     event_data = []
-    all_reservations = Order.objects.all()
+    all_reservations = Order.objects.filter(property_object=property)
 
     for reservation in all_reservations:
         current_date = reservation.date_from
@@ -64,25 +65,25 @@ def reservation(request):
 
     context = {
         'event_data': list(combined_event_data.values()),
+        'property': property,
     }
 
     return render(request, 'reservation.html', context)
 
 
-def checkout(request):
+def checkout(request, property_id):
+    property = Property.objects.get(id=property_id)
     current_date = datetime.now()
     dates = request.GET.get('dates')
-    print(dates)
+    print(property_id)
 
     if not dates:
         messages.error(request, 'Vyberte si termín.')
-        return redirect('reservation')
+        return redirect('reservation', property_id=property_id)
 
     dates = dates.split(',')
     selected_dates_by_user = []
     reserved_dates = []
-
-    print(dates)
 
     if len(dates) == 1:
         start_date = datetime.strptime(dates[0], '%Y-%m-%d')
@@ -98,11 +99,9 @@ def checkout(request):
         selected_dates_by_user.append(start_date.strftime('%Y-%m-%d'))
         start_date += timedelta(days=1)
 
-    print(selected_dates_by_user)
-
     if len(selected_dates_by_user) <3:
         messages.error(request, 'Vyberte si minimálne 2 noci.')
-        return redirect('reservation')
+        return redirect('reservation', property_id=property_id)
 
     # Retrieve all reservations from the database
     reservations = Order.objects.all()
@@ -121,36 +120,36 @@ def checkout(request):
     for date in selected_dates_by_user:
         if date in reserved_dates:
             messages.error(request, 'Váš termín je už obsadený.')
-            return redirect('reservation')
+            return redirect('reservation', property_id=property_id)
 
     nights_count = len(selected_dates_by_user) - 1
     night_text = 'noci' if nights_count < 5 else 'nocí'
 
     if request.method == 'POST':
-        form = OrderForm(request.POST)
-        if form.is_valid():
-            order = Order.objects.create(
-                name_surname=form.cleaned_data['name_surname'],
-                email=form.cleaned_data['email'],
-                phone=form.cleaned_data['phone'],
-                date_from=datetime.strptime(selected_dates_by_user[0], '%Y-%m-%d'),
-                date_to=datetime.strptime(selected_dates_by_user[-1], '%Y-%m-%d'),
-                address=form.cleaned_data['address'],
-                city=form.cleaned_data['city'],
-                postal=form.cleaned_data['postal'],
-                price=nights_count * property.price
-            )
-            order_id = order.id
-            return redirect('order', order_id=order_id)
-    else:
-        form = OrderForm()
+        order = Order.objects.create(
+            property_object=property,
+            name_surname=request.POST.get('name_surname'),
+            email=request.POST.get('email'),
+            phone=request.POST.get('phone'),
+            date_from=datetime.strptime(selected_dates_by_user[0], '%Y-%m-%d'),
+            date_to=datetime.strptime(selected_dates_by_user[-1], '%Y-%m-%d'),
+            address=request.POST.get('address'),
+            city=request.POST.get('city'),
+            postal=request.POST.get('postal'),
+            price=nights_count * property.price
+        )
+        order_id = order.id
+        return redirect('order', order_id=order_id)
+
+    form = OrderForm()
 
     context = {
         'first_date': datetime.strptime(selected_dates_by_user[0], '%Y-%m-%d').strftime('%d.%m.%Y'),
         'last_date': datetime.strptime(selected_dates_by_user[-1], '%Y-%m-%d').strftime('%d.%m.%Y'),
         'nights': nights_count,
         'night_text': night_text,
-        'form': form
+        'form': form,
+        'property': property,
     }
 
     return render(request, 'checkout.html', context)
@@ -169,19 +168,3 @@ def order(request, order_id):
 def end(request):
     # Add your logic for handling the checkout page
     return render(request, 'end.html')
-
-
-@csrf_exempt
-def handle_reservation(request):
-    if request.method == 'POST':
-        # Zde přidáte kód pro zpracování rezervačního požadavku
-        # Například získání dat z POST požadavku a uložení do databáze
-
-        # Po zpracování požadavku můžete vrátit JSON odpověď
-        return JsonResponse({'success': True})
-    else:
-        return JsonResponse({'success': False, 'message': 'Invalid request method'})
-
-def dubai_reservation(request):
-
-    return render(request, 'dubai_reservation.html')

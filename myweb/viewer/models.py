@@ -12,12 +12,13 @@ class Property(Model):
     name = CharField(max_length=50)
     category = ForeignKey(Category, on_delete=CASCADE)
     image = ImageField(upload_to='uploads/')
-    order = IntegerField()
+    order_of_property = IntegerField()
     title = CharField(max_length=500)
     price = IntegerField(default=150)
 
 
 class Order(Model):
+    property_object = ForeignKey(Property, on_delete=CASCADE)
     name_surname = CharField(max_length=200)
     email = EmailField()
     phone = CharField(max_length=20)

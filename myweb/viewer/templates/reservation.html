@@ -23,7 +23,7 @@
 <body>
 
     <div class="centered-container">
-        <h2 class="gallery-text">Rezervácia</h2>
+        <h2 class="gallery-text">Rezervácia {{ property.name }}</h2>
     </div>
 
     <div class="calendar-container">
@@ -35,7 +35,7 @@
                 <li>dlfjasdôlfajdf</li>
                 <li>dlfjasdôlfajdf</li>
                 <li>dlfjasdôlfajdf</li>
-                <li>Cena 99€ za noc</li>
+                <li>Cena {{ property.price }}€ za noc</li>
             </ul>
             <div id="dateDisplay">
                 <p>Termín: </p>
@@ -52,7 +52,7 @@
     </div>
 
 
-
+    <script>property_id = '{{ property.id }}';</script>
     <script src='{% static "reservation.js" %}'></script>
 </body>
 </html>

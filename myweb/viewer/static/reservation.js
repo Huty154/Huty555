@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       highlightSelectedDates(selectedEndDates);
 
-      checkoutLink.href = '/checkout/' + '?dates=' + selectedEndDates.join(',');
+      checkoutLink.href = '/checkout/' + property_id + '/?dates=' + selectedEndDates.join(',');
     },
     firstDay: 1,
     locale: 'sk', // Set the locale to Slovak
